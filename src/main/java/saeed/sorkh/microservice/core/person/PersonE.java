@@ -3,11 +3,14 @@ package saeed.sorkh.microservice.core.person;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import saeed.sorkh.microservice.core.person_group.PersonGroupE;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "person")
+@Table(name = "person", indexes = {
+        @Index(name = "person_inx_person_group_id", columnList = "person_group_id"),
+})
 @Getter
 @Setter
 public class PersonE {
@@ -23,6 +26,7 @@ public class PersonE {
             strategy = GenerationType.SEQUENCE,
             generator = "person_primary_sequence"
     )
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name", nullable = false)
@@ -37,4 +41,7 @@ public class PersonE {
     @Column(name = "created_at", nullable = false)
     private Date createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_group_id", nullable = false)
+    private PersonGroupE personGroup;
 }
