@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>saeed.sorkh.microservice</groupId>
-	<artifactId>Micro-Service</artifactId>
+	<artifactId>Micro-Service-B</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Micro-Service</name>
+	<name>Micro-Service-B</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
