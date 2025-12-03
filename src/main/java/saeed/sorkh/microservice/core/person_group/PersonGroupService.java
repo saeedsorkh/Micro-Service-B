@@ -1,18 +1,16 @@
 package saeed.sorkh.microservice.core.person_group;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class PersonGroupService {
 
     private final PersonGroupRepo personGroupRepo;
-
-    public PersonGroupService(PersonGroupRepo personGroupRepo) {
-        this.personGroupRepo = personGroupRepo;
-    }
 
     @Transactional
     public PersonGroupE create() {
