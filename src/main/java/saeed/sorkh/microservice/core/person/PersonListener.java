@@ -18,8 +18,8 @@ public class PersonListener {
     private final PersonService personService;
 
     @RabbitListener(queues = "create-person-queue")
-    public ResponseEntity<String> deletePersons(String personGroupId) {
+    public void deletePersons(String personGroupId) {
         personService.deleteByPersonGroupId(UUID.fromString(personGroupId));
-        return ResponseEntity.ok().build();
+        System.out.println("Deleting was done");
     }
 }
